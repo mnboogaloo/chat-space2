@@ -1,0 +1,16 @@
+.main-chat
+  .message-box 
+    .left__box
+      .box__thema Ruby学習
+      .box__name Member : Nishikawa
+    = link_to "#" do
+      .edit__btn Edit
+  .message-list
+  .form
+    %form.new_message
+      .input-box
+        %input{type: "text", class: "input-box__text",placeholder: "type a message"} 
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class:"input-box__image__file"}
+      %input{type: "submit", class: "submit-btn"}
