@@ -7,7 +7,7 @@
   height: 100vh;
   .side-bar {
     width: 300px;
-    .side-bar__username{
+    .header{
       background-color: #253141;
       height: 100px;       
       display: flex;
@@ -16,24 +16,19 @@
       .top {
         height: 20px;
         width: calc(100vw - 40px);
-        position: relative;
+        display: flex;
+        justify-content: space-between;
         .top__name {
           color: #ffffff;
           font-size: 16px;
-          float: left;
-          position: absolute;
-          line-height: 20px;
         }
         .top__icon {
           font-size: 16px;
-          position: absolute;
           text-align: center;
           padding-right: 60px;
             &__btn {
-              float: right;
+              color: #ffffff;
               padding-left: 5px;
-              line-height: 20px;
-              color: #ffffff;             
             }          
         }
       }         

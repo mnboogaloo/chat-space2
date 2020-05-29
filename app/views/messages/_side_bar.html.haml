@@ -1,13 +1,17 @@
 .side-bar        
-  .side-bar__username
+  .header
     .top
-      .top__name Nishikawa 
+      .top__name 
+        = current_user.name 
       .top__icon
-      = link_to "#", class: "top__icon__btn top__icon__btn" do
-        = icon('fas fa-cog',  class: "top__icon__btn--icon")            
-      = link_to "#", class: "top__icon__btn top__icon__btn" do
+      = link_to new_group_path , class: "top__icon__btn top__icon__btn" do
         = icon('far fa-edit',  class: "top__icon__btn--icon")  
+      = link_to edit_user_path(current_user) , class: "top__icon__btn top__icon__btn" do
+        = icon('fas fa-cog',  class: "top__icon__btn--icon")  
   .side-bar__group
-    .group__list
-      .list__thema Ruby学習
-      .list__content 本日もよろしくお願い致します。        
+    - current_user.groups.each do |group|
+      .group__list
+        = link_to '#' do
+          .list__thema
+            = group.name
+          .list__content 本日もよろしくお願い致します。        
