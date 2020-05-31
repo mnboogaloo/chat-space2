@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  # def index
+  #   @members = Member.all
+  # end
+  
   def edit
   end
 

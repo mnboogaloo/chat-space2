@@ -1,16 +1,22 @@
 .main-chat
   .message-box 
     .left__box
-      .box__thema Ruby学習
-      .box__name Member : Nishikawa
-    = link_to "#" do
-      .edit__btn Edit
+      .box__thema
+        = @group.name
+      .box__name
+        Menber:
+        - @members.each do |member|
+          = member.name
+    = link_to edit_group_path(params[:group_id]) do
+      .edit__btn
+        Edit
   .message-list
+    = render @messages
   .form
-    %form.new_message
-      .input-box
-        %input{type: "text", class: "input-box__text",placeholder: "type a message"} 
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class:"input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+    = form_for [@group, @message] do |f|
+      .form__mask
+        = f.text_field :content, class: 'form__mask__text', placeholder: 'type a message'
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'form__mask__image__file' 
+      = f.submit 'Send', class: 'form__submit'
