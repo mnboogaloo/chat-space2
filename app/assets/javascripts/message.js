@@ -3,21 +3,21 @@ $(function(){
     image = ( message.image ) ? `<img class= "lower-message__image" src=${message.image} >` : "";
   	  var html =
   	    `<div class="upper-message" data-message-id= "${message.id}">
-            <div class="upper-message__user-name">
-              ${message.user_name}
-            </div>
-            <div class="upper-message__date">
-              ${message.date}
-            </div>
+          <div class="upper-message__user-name">
+            ${message.user_name}
           </div>
-          <div class="lower-message">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-            <p class="lower-message__image">
-              ${image}
-            </p>
-          </div>  
+          <div class="upper-message__date">
+            ${message.date}
+          </div>
+        </div>
+        <div class="lower-message">
+          <p class="lower-message__content">
+            ${message.content}
+          </p>
+          <p class="lower-message__image">
+            ${image}
+          </p>
+        </div>  
         </div>`
     return html;
   }
@@ -91,5 +91,12 @@ $(function(){
     $('form')[0].reset();
     $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
    })
-})
+  .fail(function(){
+    alert('メッセージ送信に失敗しました');
+  })
+
+  .always(function(data){　
+  $(".form__submit").prop('disabled', false);
+  })
+  })
 });
