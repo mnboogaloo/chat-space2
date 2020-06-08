@@ -4,10 +4,10 @@
       .top__name 
         = current_user.name 
       .top__icon
-      = link_to new_group_path , class: "top__icon__btn" do
-        = icon('far fa-edit',  class: "top__icon__btn--icon")  
-      = link_to edit_user_path(current_user) , class: "top__icon__btn" do
-        = icon('fas fa-cog',  class: "top__icon__btn--icon")  
+        = link_to new_group_path , class: "top__icon__btn" do
+          = icon('far fa-edit',  class: "top__icon__btn")  
+        = link_to edit_user_path(current_user) , class: "top__icon__btn" do
+          = icon('fas fa-cog',  class: "top__icon__btn") 
   .side-bar__group
     - current_user.groups.each do |group|
       .group__list
