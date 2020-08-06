@@ -1,4 +1,4 @@
-server '52.196.147.26', user: 'ec2-user', roles: %w{app db web}
+# server '52.196.147.26', user: 'ec2-user', roles: %w{app db web}
 
 # config.consider_all_requests_local = true
 
